@@ -39,7 +39,7 @@ jobs:
             const { data: runs } = await github.actions.listWorkflowRuns({
               owner: 'trieuquan27',
               repo: 'testrepodispatch',
-              workflow_id: '${{ steps.get_workflow_id.outputs.workflow_id }}',
+              workflow_id: '31',
               event: 'repository_dispatch',
               branch: 'master'
             });
