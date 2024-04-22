@@ -12,6 +12,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+  trigger_qa:
+    runs-on: ubuntu-latest
+    needs: build
+    
       - name: Dispatch QA Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
