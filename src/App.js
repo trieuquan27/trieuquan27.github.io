@@ -198,7 +198,7 @@ export default function App() {
               fullWidth
               mt={"md"}
             >
-              New Tsk
+              New Tđask
             </Button>
           </Container>
         </div>
