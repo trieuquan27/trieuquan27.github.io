@@ -2,11 +2,11 @@
 
 name: Dev Workflow
 
-on: workflow_dispatch
-
-push:
-  branches:
-    - main
+on:
+workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   trigger-test:
