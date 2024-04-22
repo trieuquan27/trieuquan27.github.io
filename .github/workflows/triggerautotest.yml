@@ -20,15 +20,15 @@ jobs:
           repository: trieuquan27/testrepodispatch
           event-type: qa_workflow
 
-      - name: Get Workflow ID
-        id: get_workflow_id
-        run: |
-          response=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-                         -H "Accept: application/vnd.github.v3+json" \
-                         https://api.github.com/repos/trieuquan27/testrepodispatch/actions/workflows)
-          workflow_id=$(echo "$response" | jq -r '.workflows[] | select(.name == "Playwright Tests") | .id')
-          echo "::set-output name=workflow_id::$workflow_id"
-        shell: bash
+      # - name: Get Workflow ID
+      #   id: get_workflow_id
+      #   run: |
+      #     response=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+      #                    -H "Accept: application/vnd.github.v3+json" \
+      #                    https://api.github.com/repos/trieuquan27/testrepodispatch/actions/workflows)
+      #     workflow_id=$(echo "$response" | jq -r '.workflows[] | select(.name == "Playwright Tests") | .id')
+      #     echo "::set-output name=workflow_id::$workflow_id"
+      #   shell: bash
 
       - name: Wait for QA Workflow
         if: ${{ steps.dispatch_qa_workflow.outputs.status == 'queued' || steps.dispatch_qa_workflow.outputs.status == 'in_progress' }}
