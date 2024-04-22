@@ -146,7 +146,7 @@ export default function App() {
                   fontWeight: 900,
                 })}
               >
-                My T
+                My Tasks
               </Title>
               <ActionIcon
                 color={"blue"}
@@ -198,7 +198,7 @@ export default function App() {
               fullWidth
               mt={"md"}
             >
-              New Task
+              New Tsk
             </Button>
           </Container>
         </div>
