@@ -198,7 +198,7 @@ export default function App() {
               fullWidth
               mt={"md"}
             >
-              New Tđask
+              New Task
             </Button>
           </Container>
         </div>
