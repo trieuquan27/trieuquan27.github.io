@@ -4,15 +4,12 @@ name: Dev Workflow
 
 on: workflow_dispatch
 
+push:
+  branches:
+    - main
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-  trigger_qa:
+  trigger-test:
     runs-on: ubuntu-latest
 
     steps:
