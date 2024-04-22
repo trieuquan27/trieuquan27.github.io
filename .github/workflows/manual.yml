@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Dispatch QA Workflow
-        uses: peter-evans/repository-dispatch@v2
+        uses: test
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/testrepodispatch
