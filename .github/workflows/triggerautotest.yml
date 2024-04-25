@@ -21,5 +21,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
-          repository: trieuquan27/testrepodispatch
+          repository: trieuquan27/test.github.io
           event-type: qa_workflow
