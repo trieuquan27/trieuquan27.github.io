@@ -23,8 +23,8 @@ jobs:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
-          
-   publish:
+
+  publish:
     name: Publish the package
     runs-on: ubuntu-latest
 
