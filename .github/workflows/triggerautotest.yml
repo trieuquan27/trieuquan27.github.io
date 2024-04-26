@@ -23,7 +23,7 @@ jobs:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
-          workflow_file_name: selftest.yaml
+          workflow_file_name: playwright.yaml
           client_payload: '{"test": "true"}'
           wait_interval: 11
           trigger_workflow: true
