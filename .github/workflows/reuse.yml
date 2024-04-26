@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-workflow-in-another-repo:
-    uses: trieuquan27/test/.github/workflows/playwright.yml@7876181770c8a0efcf13da4ff880d19c1a023f0d
+    uses: trieuquan27/test/.github/workflows/playwright.yml@master
