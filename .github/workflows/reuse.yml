@@ -1,8 +1,0 @@
-name: Reuse test wrokflow
-
-on:
-  workflow_call:
-
-jobs:
-  call-workflow-in-another-repo:
-    uses: trieuquan27/test/.github/workflows/playwright.yml@master
