@@ -23,9 +23,11 @@ jobs:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
-          workflow_file_name: playwright.yaml
-          client_payload: '{"test": "true"}'
-          wait_interval: 11
-          trigger_workflow: true
-          wait_workflow: true
-          propagate_failure: true
+
+      - name: Wait for tests to succeed
+        uses: lewagon/wait-on-check-action@v1.3.4
+        with:
+          ref: master
+          check-name: test
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 20
