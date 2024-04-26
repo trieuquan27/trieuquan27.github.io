@@ -3,7 +3,6 @@
 name: Dev Workflow
 
 on:
-  workflow_call:
   workflow_dispatch:
   push:
     branches:
@@ -24,6 +23,3 @@ jobs:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
-
-  call-workflow-in-another-repo:
-    uses: trieuquan27/test/.github/workflows/playwright.yml@7876181770c8a0efcf13da4ff880d19c1a023f0d
