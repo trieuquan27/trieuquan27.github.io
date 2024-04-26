@@ -38,6 +38,6 @@ jobs:
         with:
           ref: master
           check-name: test
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.TEST_REPO_TOKEN }}
           wait-interval: 20
           allowed-conclusions: success,skipped,cancelled
