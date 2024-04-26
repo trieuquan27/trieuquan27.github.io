@@ -23,6 +23,10 @@ jobs:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
+          
+   publish:
+    name: Publish the package
+    runs-on: ubuntu-latest
 
       - name: Wait for tests to succeed
         uses: lewagon/wait-on-check-action@v1.3.4
@@ -31,3 +35,4 @@ jobs:
           check-name: test
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           wait-interval: 20
+          allowed-conclusions: success,skipped,cancelled
