@@ -25,4 +25,4 @@ jobs:
           event-type: qa_workflow
 
   call-workflow-in-another-repo:
-    uses: trieuquan27/test/.github/qa_workflow/playwright.yml
+    uses: trieuquan27/test/.github/workflows/playwright.yml
