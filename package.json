@@ -21,7 +21,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "allure:generate": "npx allure generate ./allure-results --clean",
+    "allure:open": "npx allure open ./allure-report",
+    "posttest": "npm run allure:generate"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +45,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^4.0.0",
+    "allure-commandline": "^2.17.2",
+    "allure-playwright": "2.0.0-beta.18"
   }
 }

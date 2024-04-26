@@ -24,20 +24,20 @@ jobs:
           repository: trieuquan27/test.github.io
           event-type: qa_workflow
 
-  publish:
-    name: Publish the package
-    runs-on: ubuntu-latest
-    needs: trigger-test
+  # publish:
+  #   name: Publish the package
+  #   runs-on: ubuntu-latest
+  #   needs: trigger-test
 
-    # if: github.event_name
-    # == 'workflow_dispatch' && contains
+  #   # if: github.event_name
+  #   # == 'workflow_dispatch' && contains
 
-    steps:
-      - name: Wait for tests to succeed
-        uses: lewagon/wait-on-check-action@v1.3.4
-        with:
-          ref: master
-          check-name: test
-          repo-token: ${{ secrets.TEST_REPO_TOKEN }}
-          wait-interval: 20
-          allowed-conclusions: success,skipped,cancelled
+  #   steps:
+  #     - name: Wait for tests to succeed
+  #       uses: lewagon/wait-on-check-action@v1.3.4
+  #       with:
+  #         ref: master
+  #         check-name: test
+  #         repo-token: ${{ secrets.TEST_REPO_TOKEN }}
+  #         wait-interval: 20
+  #         allowed-conclusions: success,skipped,cancelled
