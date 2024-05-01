@@ -31,6 +31,7 @@ jobs:
         id: return_dispatch
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
+          ref: master
           repo: trieuquan27/test
           owner: trieuquan27
           workflow: playwright.yml
