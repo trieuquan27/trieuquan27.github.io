@@ -27,7 +27,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - name: Dispatch an action and get the run ID
-        uses: codex-/return-dispatch@v1
+        uses: codex-/return-dispatch@v1.13
         id: return_dispatch
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
@@ -36,7 +36,7 @@ jobs:
           owner: trieuquan27
           workflow: playwright.yml
       - name: Await Run ID ${{ steps.return_dispatch.outputs.run_id }}
-        uses: Codex-/await-remote-run@v1.0.0
+        uses: Codex-/await-remote-run@v1.12.2
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           repo: return-dispatch
