@@ -23,22 +23,23 @@ jobs:
   #         token: ${{ secrets.TEST_REPO_TOKEN }}
   #         repository: trieuquan27/test.github.io
   #         event-type: qa_workflow
-
-  steps:
-    - name: Dispatch an action and get the run ID
-      uses: codex-/return-dispatch@v1
-      id: return_dispatch
-      with:
-        token: ${{ secrets.TEST_REPO_TOKEN }}
-        repo: trieuquan27/test.github.io
-        owner: trieuquan27
-        workflow: playwright.yml
-    - name: Await Run ID ${{ steps.return_dispatch.outputs.run_id }}
-      uses: Codex-/await-remote-run@v1.0.0
-      with:
-        token: ${{ secrets.TEST_REPO_TOKEN }}
-        repo: return-dispatch
-        owner: codex-
-        run_id: ${{ steps.return_dispatch.outputs.run_id }}
-        run_timeout_seconds: 300 # Optional
-        poll_interval_ms: 5000 # Optional
+  trigger-test:
+      runs-on: ubuntu-latest
+      steps:
+      - name: Dispatch an action and get the run ID
+        uses: codex-/return-dispatch@v1
+        id: return_dispatch
+        with:
+          token: ${{ secrets.TEST_REPO_TOKEN }}
+          repo: trieuquan27/test.github.io
+          owner: trieuquan27
+          workflow: playwright.yml
+      - name: Await Run ID ${{ steps.return_dispatch.outputs.run_id }}
+        uses: Codex-/await-remote-run@v1.0.0
+        with:
+          token: ${{ secrets.TEST_REPO_TOKEN }}
+          repo: return-dispatch
+          owner: codex-
+          run_id: ${{ steps.return_dispatch.outputs.run_id }}
+          run_timeout_seconds: 300 # Optional
+          poll_interval_ms: 5000 # Optional
