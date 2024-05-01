@@ -7,9 +7,9 @@ on:
   push:
     branches:
       - master
-  # pull_request:
-  #   branches:
-  #     - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   # trigger-test:
@@ -24,8 +24,8 @@ jobs:
   #         repository: trieuquan27/test.github.io
   #         event-type: qa_workflow
   trigger-test:
-      runs-on: ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+    steps:
       - name: Dispatch an action and get the run ID
         uses: codex-/return-dispatch@v1.13.0
         id: return_dispatch
