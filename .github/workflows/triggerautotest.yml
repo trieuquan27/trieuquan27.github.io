@@ -39,8 +39,8 @@ jobs:
         uses: Codex-/await-remote-run@v1.12.2
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
-          repo: return-dispatch
-          owner: codex-
+          repo: test
+          owner: trieuquan27
           run_id: ${{ steps.return_dispatch.outputs.run_id }}
           run_timeout_seconds: 300 # Optional
           poll_interval_ms: 5000 # Optional
