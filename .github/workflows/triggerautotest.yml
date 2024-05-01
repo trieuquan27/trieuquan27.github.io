@@ -32,7 +32,7 @@ jobs:
         with:
           token: ${{ secrets.TEST_REPO_TOKEN }}
           ref: master
-          repo: trieuquan27/test
+          repo: test
           owner: trieuquan27
           workflow: playwright.yml
       - name: Await Run ID ${{ steps.return_dispatch.outputs.run_id }}
