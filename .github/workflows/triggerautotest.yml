@@ -12,6 +12,7 @@ on:
       - master
 
 jobs:
+<<<<<<< HEAD
   trigger-test:
     runs-on: ubuntu-latest
 
@@ -63,13 +64,37 @@ jobs:
   #   runs-on: ubuntu-latest
   #   needs: [trigger-test, check-external-job]
   #   if: github.event_name == 'workflow_dispatch' && github.event.action == 'completed' && needs.check-external-job.outputs.check_external_job != 'failure'
+=======
+  # trigger-test:
+  #   runs-on: ubuntu-latest
+>>>>>>> b13fd3c44f9eebb82c8fa02db7e7ac21b798f606
 
   #   steps:
-  #     - name: Wait for tests to succeed
-  #       uses: lewagon/wait-on-check-action@v1.3.4
+  #     - name: Dispatch QA Workflow
+  #       id: dispatch_qa_workflow
+  #       uses: peter-evans/repository-dispatch@v2
   #       with:
-  #         ref: master
-  #         check-name: test
-  #         repo-token: ${{ secrets.TEST_REPO_TOKEN }}
-  #         wait-interval: 20
-  #         allowed-conclusions: success,skipped,cancelled
+  #         token: ${{ secrets.TEST_REPO_TOKEN }}
+  #         repository: trieuquan27/test.github.io
+  #         event-type: qa_workflow
+  trigger-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch an action and get the run ID
+        uses: codex-/return-dispatch@v1.13.0
+        id: return_dispatch
+        with:
+          token: ${{ secrets.TEST_REPO_TOKEN }}
+          ref: master
+          repo: test
+          owner: trieuquan27
+          workflow: playwright.yml
+      - name: Await Run ID ${{ steps.return_dispatch.outputs.run_id }}
+        uses: Codex-/await-remote-run@v1.12.2
+        with:
+          token: ${{ secrets.TEST_REPO_TOKEN }}
+          repo: test
+          owner: trieuquan27
+          run_id: ${{ steps.return_dispatch.outputs.run_id }}
+          run_timeout_seconds: 300 # Optional
+          poll_interval_ms: 5000 # Optional..
